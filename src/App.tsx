@@ -11,12 +11,14 @@ const App = () => {
       <>
          <Router>
             <Navbar />
-            <Routes>
-               <Route path='/' Component={Home} />
-               <Route path='/about' Component={About} />
-               <Route path='/contact' Component={Contact} />
-               <Route path='/privacy' Component={Privacy} />
-            </Routes>
+            <main className='min-h-[90vh]'>
+               <Routes>
+                  <Route path='/' Component={Home} />
+                  <Route path='/about' Component={About} />
+                  <Route path='/contact' Component={Contact} />
+                  <Route path='/privacy' Component={Privacy} />
+               </Routes>
+            </main>
             <Footer />
          </Router>
       </>
