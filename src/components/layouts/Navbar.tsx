@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
-import SalemtakLogo from '../../assets/images/BadiSLogo.png'
+import SalemtakLogo from '../../assets/images/BadiSLogo.webp'
 import HamburgerMenu from './HamburgerMenu'
 
 const Navbar = () => {
