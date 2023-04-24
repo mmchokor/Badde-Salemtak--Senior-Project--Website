@@ -9,7 +9,7 @@ import React, { useState } from 'react';
       };
   return (
     <>
-       <header className="flex justify-between items-center sm:px-4 py-4 px-3 bg-[#ffffff] text-[#006A6B]">
+       <header className="flex justify-between items-center sm:px-4 py-4 px-3 bg-[#ffffff] text-salemtak ">
        <div className="flex items-center">
   <img src="src\ImageAssests\BadiSLogo.png" alt="Logo" className="w-auto h-8 sm:mr-2 " />
   <h1 className="text-2xl font-semibold font-interR">Bade Salemtak</h1>
@@ -32,7 +32,7 @@ import React, { useState } from 'react';
           <button onClick={handleMenuToggle}>
             <svg
               viewBox="0 0 24 24"
-              className="w-6 h-6 fill-current text-[#006A6B]"
+              className="w-6 h-6 fill-current text-salemtak"
             >
               {isMenuOpen ? (
                 <path
@@ -53,7 +53,7 @@ import React, { useState } from 'react';
       </div>
 
       {isMenuOpen && (
-        <div className="sm:hidden absolute top-16 right-0 left-0 z-10 bg-[#ffffff] text-[#006A6B]">
+        <div className="sm:hidden absolute top-16 right-0 left-0 z-10 bg-[#ffffff] text-salemtak">
           <a href="#" className="block py-2 px-4 hover:text-gray-400 font-interR">
             About us
           </a>
