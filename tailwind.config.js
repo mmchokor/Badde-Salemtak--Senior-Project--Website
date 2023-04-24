@@ -10,6 +10,7 @@ export default {
       'salemtak': '#006A6B',
       'salemtak-hover': '#028c8e',
       }
+      ,fontFamily:{interR:['inter'],interB:['inter-bold']}
     },
   },
   plugins: [],
