@@ -1,0 +1,1 @@
+export const API_URL = "https://badde-salemtak-api.vercel.app/api";
