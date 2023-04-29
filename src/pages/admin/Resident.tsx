@@ -1,20 +1,29 @@
-import { useMutation, useQuery } from 'react-query'
+import { useAtom } from 'jotai'
+import { useMutation, useQuery, useQueryClient } from 'react-query'
 import {
-    deleteResidentListingById,
-    getResidentListings,
+   deleteResidentListingById,
+   getResidentListings,
 } from '../../api/residentListingsAPI'
+import { tokenJWT } from '../../global/logged'
 import { ResidentListing } from '../../global/types'
 
 const Resident = () => {
-   const { isLoading, error, data, refetch } = useQuery<
-      ResidentListing[],
-      Error
-   >('residentListings', getResidentListings)
+   const queryClient = useQueryClient()
 
+   const [token] = useAtom(tokenJWT)
+
+   // fetch query
+   const { isLoading, error, data } = useQuery<ResidentListing[], Error>(
+      'residentListings',
+      () => getResidentListings(token)
+   )
+
+   // delete query
    const { mutate } = useMutation(deleteResidentListingById, {
       onSuccess: () => {
          // Invalidate the query cache to refetch the data
-         refetch()
+         console.log('deleted')
+         queryClient.invalidateQueries(['residentListings'])
       },
    })
 
@@ -54,7 +63,13 @@ const Resident = () => {
                      <td className='border px-4 py-2'>{listing.user._id}</td>
                      <td className='border px-4 py-2'>{listing.quantity}</td>
                      <td className='border px-4 py-2'>
-                        <button onClick={() => mutate(listing._id)}>
+                        <button
+                           onClick={() => {
+                              if (window.confirm('Are you sure?')) {
+                                 mutate({ id: listing._id, token: token })
+                              }
+                           }}
+                        >
                            Delete
                         </button>
                      </td>

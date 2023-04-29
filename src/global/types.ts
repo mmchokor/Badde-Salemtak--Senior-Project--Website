@@ -5,6 +5,11 @@ interface User {
    lastname: string
 }
 
+interface LoginUser {
+   email: string
+   password: string
+}
+
 interface ResidentListing {
    _id: string
    name: string
@@ -34,5 +39,5 @@ interface ResidentResponse {
 }
 
 // export all types
-export type { ResidentData, ResidentListing, ResidentResponse, User }
+export type { LoginUser, ResidentData, ResidentListing, ResidentResponse, User }
 

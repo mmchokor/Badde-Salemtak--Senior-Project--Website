@@ -1,7 +1,9 @@
 import { useAtom } from 'jotai'
 import { useState } from 'react'
+import { useMutation } from 'react-query'
 import { useNavigate } from 'react-router-dom'
-import { isLoggedIn } from '../../global/logged'
+import { signIn } from '../../api/userAPI'
+import { isLoggedIn, tokenJWT } from '../../global/logged'
 
 interface FormValues {
    email: string
@@ -11,11 +13,23 @@ interface FormValues {
 const Login = () => {
    const navigate = useNavigate()
 
+   const [, setToken] = useAtom(tokenJWT)
    const [formValues, setFormValues] = useState<FormValues>({
       email: '',
       password: '',
    })
    const [isLogged, setIsLogged] = useAtom(isLoggedIn)
+
+   const { mutate, isLoading } = useMutation(signIn, {
+      onSuccess: (data) => {
+         setToken(data.token)
+         setIsLogged(true)
+         navigate('/admin/dashboard')
+      },
+      onError: () => {
+         console.log('Invalid email or password')
+      },
+   })
 
    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
       const { name, value } = e.target
@@ -25,24 +39,19 @@ const Login = () => {
       }))
    }
 
-   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault()
 
       const { email, password } = formValues
-
-      if (
-         email === import.meta.env.VITE_ADMIN_USER &&
-         password === import.meta.env.VITE_ADMIN_PASS
-      ) {
-         setIsLogged(true)
-         navigate('/admin/dashboard')
-      } else {
-         console.log('Invalid email or password')
-      }
+      mutate({ email, password })
    }
 
    if (isLogged) {
       navigate('/admin/dashboard')
+   }
+
+   if (isLoading) {
+      return <div>Loading...</div>
    }
 
    return (

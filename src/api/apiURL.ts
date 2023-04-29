@@ -1,1 +1,1 @@
-export const API_URL = "http://127.0.0.1:6969/api";
+export const API_URL = "https://badde-salemtak-api.vercel.app/api";
