@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 const About = () => {
    return (
       <div className='items-left flex flex-col bg-gray-100 px-4 py-8 font-interR sm:px-6 md:px-8 lg:px-10'>
@@ -39,6 +41,9 @@ const About = () => {
             will be able to browse through all of the listings by defining the
             item's urgency level, the category it belongs to, the nation from
             which they want the goods, and other relevant qualities.
+            <Link to={'/admin/dashboard'} className='text-gray-600'>
+               admin
+            </Link>
          </p>
       </div>
    )
