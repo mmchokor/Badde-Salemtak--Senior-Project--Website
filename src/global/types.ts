@@ -38,6 +38,36 @@ interface ResidentResponse {
    }
 }
 
+interface TravelerListing {
+   _id: string
+   extraWeight: number
+   date: string
+   dimension: string
+   ticketNumber: string
+   residentCity: string
+   description: string
+   user: User
+   paymentMethod: string
+   productType: string
+   createdAt: string
+   country: string
+}
+
+interface TravelerData {
+   travelerListings: TravelerListing[]; 
+ }
+ 
+ interface TravelerResponse {
+   data: TravelerData;
+ }
+
 // export all types
-export type { LoginUser, ResidentData, ResidentListing, ResidentResponse, User }
+export type {
+   LoginUser,
+   ResidentData,
+   ResidentListing,
+   ResidentResponse, TravelerData,
+   TravelerListing,
+   TravelerResponse, User
+}
 
