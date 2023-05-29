@@ -27,7 +27,7 @@ const Contact = (): JSX.Element => {
    }
 
    return (
-      <div className='flex flex-col items-center bg-gray-100 px-4 py-10 font-interR sm:px-6 md:px-8 lg:px-10'>
+      <div className='min-h-screen flex flex-col items-center bg-gray-100 px-4 py-10 font-interR sm:px-6 md:px-8 lg:px-10'>
          <h1 className='mb-5 text-4xl font-bold text-salemtak'>Contact Us</h1>
          <form onSubmit={(e) => onSubmit(e)} className='w-full max-w-lg'>
             <div className='mb-6'>

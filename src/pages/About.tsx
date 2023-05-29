@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 
 const About = () => {
    return (
-      <div className='items-left flex flex-col bg-gray-100 px-4 py-8 font-interR sm:px-6 md:px-8 lg:px-10'>
+      <div className='min-h-screen items-left flex flex-col bg-gray-100 px-4 py-8 font-interR sm:px-6 md:px-8 lg:px-10'>
          <h1 className='mb-5 text-4xl font-bold text-salemtak'>About Us</h1>
          <p className='mb-8 text-lg text-gray-600'>
             Our project aims to solve the issue of obtaining various products

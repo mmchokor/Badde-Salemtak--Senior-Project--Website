@@ -1,10 +1,10 @@
 import phoneImage from '../assets/images/phone14.svg'
-
+//h-screen
 const Landing = () => {
    return (
-      <div className='flex  h-screen flex-col items-center justify-between  bg-gray-100 px-10 pt-10 xl:flex-row'>
+      <div className='flex min-h-screen flex-col items-center justify-between px-10 pt-10 xl:flex-row'>
          <div className='container mb-6  text-center sm:mb-0 sm:text-left'>
-            <h1 className='sm:w-400 sm:h-400 text-shadow-lg pb-6 font-interR text-4xl font-semibold sm:text-8xl lg:w-[80%]  '>
+            <h1 className='sm:w-400 sm:h-400 text-shadow-lg pb-6 font-interR text-4xl font-semibold sm:text-8xl lg:w-[80%]'>
                Download the App Now
             </h1>
             <div className='mt-0 flex flex-col  sm:mt-10 sm:flex-row'>
@@ -30,11 +30,13 @@ const Landing = () => {
                </a>
             </div>
          </div>
+         
          <img
             src={phoneImage}
             alt='Phone'
-            className='w-full sm:w-auto md:w-3/5 lg:w-2/5 xl:w-[380px]   '
+            className='sm:w-auto md:w-3/5 lg:w-2/5 xl:w-[380px] h-fit'
          />
+
       </div>
    )
 }
