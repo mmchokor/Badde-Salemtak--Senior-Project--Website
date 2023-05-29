@@ -1,19 +1,19 @@
-// import axios from 'axios'
-// import { LoginUser, UserResponse } from '../global/types'
-// import { API_URL } from './apiURL'
-// // import { useAtom } from 'jotai'
-// // import { tokenJWT } from '../global/logged'
+import axios from 'axios'
+import { LoginUser } from '../global/types'
+import { API_URL } from './apiURL'
+// import { useAtom } from 'jotai'
+// import { tokenJWT } from '../global/logged'
 
-// // It is a sign in function that takes data as a parameter and returns the result
-// // results contain only the authentication token
-// const signIn = async (data: LoginUser) => {
-//    const response = await axios.post(`${API_URL}/users/login`, data, {
-//       headers: {
-//          'Content-Type': 'application/json',
-//       },
-//    })
-//    return response.data
-// }
+// It is a sign in function that takes data as a parameter and returns the result
+// results contain only the authentication token
+const signIn = async (data: LoginUser) => {
+   const response = await axios.post(`${API_URL}/users/login`, data, {
+      headers: {
+         'Content-Type': 'application/json',
+      },
+   })
+   return response.data
+}
 
 // // get all users
 // // eslint-disable-next-line
@@ -42,6 +42,6 @@
 //    return 'success'
 // }
 
-// // export all module
-// export { deleteUserById, getAllUsers, signIn }
+// export all module
+export { signIn }
 
