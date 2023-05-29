@@ -1,8 +1,8 @@
-import { useAtom } from 'jotai';
-import { useMutation, useQuery, useQueryClient } from 'react-query';
-import { deleteUserById, getAllUsers } from '../../api/userAPI';
-import { tokenJWT } from '../../global/logged';
-import { User } from '../../global/types'; // Assuming you have a type definition for User
+// import { useAtom } from 'jotai';
+// import { useMutation, useQuery, useQueryClient } from 'react-query';
+// import { deleteUserById, getAllUsers } from '../../api/userAPI';
+// import { tokenJWT } from '../../global/logged';
+// import { User } from '../../global/types'; // Assuming you have a type definition for User
 
 const UserPage = () => {
   // const queryClient = useQueryClient();
