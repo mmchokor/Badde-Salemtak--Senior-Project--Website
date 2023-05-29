@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { LoginUser } from '../global/types'
+import { LoginUser, UserResponse } from '../global/types'
 import { API_URL } from './apiURL'
 // import { useAtom } from 'jotai'
 // import { tokenJWT } from '../global/logged'
@@ -15,27 +15,33 @@ const signIn = async (data: LoginUser) => {
    return response.data
 }
 
-// const getUserInfoById = async (userId: string) => {
-//    const [token] = useAtom(tokenJWT)
-//    try {
-//       const config = {
-//          headers: {
-//             Authorization: `Bearer ${token}`,
-//          },
-//       }
+// get all users
+// eslint-disable-next-line
+const getAllUsers = async (token: string): Promise<any> => {
+   const response: UserResponse = await axios.get('/api/users/getAll', {
+      headers: {
+         Authorization: `Bearer ${token}`,
+      },
+   })
+   return response.data
+}
 
-//       const response = await axios.get(`${API_URL}/users/${userId}`, config)
-
-//       return response.data
-//       // eslint-disable-next-line
-//    } catch (err: any) {
-//       console.log(err)
-//       throw new Error(err)
-//    }
-// }
+const deleteUserById = async ({
+   id,
+   token,
+}: {
+   id: string
+   token: string
+}): Promise<string> => {
+   // eslint-disable-next-line
+   const response: any = await axios.delete(`/api/users/${id}`, {
+      headers: {
+         Authorization: `Bearer ${token}`,
+      },
+   })
+   return 'success'
+}
 
 // export all module
-export {
-  signIn
-}
+export { deleteUserById, getAllUsers, signIn }
 

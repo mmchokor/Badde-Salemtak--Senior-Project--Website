@@ -54,20 +54,41 @@ interface TravelerListing {
 }
 
 interface TravelerData {
-   travelerListings: TravelerListing[]; 
- }
- 
- interface TravelerResponse {
-   data: TravelerData;
- }
+   travelerListings: TravelerListing[]
+}
+
+interface TravelerResponse {
+   data: TravelerData
+}
+
+interface IndividualUser {
+   _id: string
+   firstname: string
+   lastname: string
+   email: string
+   password: string
+   active: boolean
+   phone: string
+   country: string
+   createdAt: Date
+   updatedAt: Date
+}
+
+interface UserResponse {
+   data: User[]
+}
 
 // export all types
 export type {
+   IndividualUser,
    LoginUser,
    ResidentData,
    ResidentListing,
-   ResidentResponse, TravelerData,
+   ResidentResponse,
+   TravelerData,
    TravelerListing,
-   TravelerResponse, User
+   TravelerResponse,
+   User,
+   UserResponse
 }
 
